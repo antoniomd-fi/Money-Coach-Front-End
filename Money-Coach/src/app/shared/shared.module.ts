@@ -17,7 +17,8 @@ import { ButtonComponent } from './components/header/button/button.component';
   ],
   exports : [
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    ButtonComponent
   ]
 })
 export class SharedModule { }

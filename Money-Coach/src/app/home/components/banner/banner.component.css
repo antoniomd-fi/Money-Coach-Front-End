@@ -1,0 +1,30 @@
+.banner{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: linear-gradient(rgba(5,7,12,0.55), rgba(5,7,12,0.55)), url(/assets/images/banner.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    text-align: center;
+    font-family: 'Lobster', cursive;
+}
+
+.banner h1{
+    font-size: 5.5rem;
+}
+
+button{
+    width: 150px;
+    background-color: #C4F069;
+    color: black;
+    font-size: 1.5rem;
+}
+
+@media (max-width: 760px){ 
+    .banner h1{
+        font-size: 3.5rem;
+    }
+}
