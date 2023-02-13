@@ -1,0 +1,16 @@
+.navbar{
+    background-color: #E6C532;
+}
+
+.nav-link{
+    font-weight: bold;
+}
+
+/*.sign-button{
+    display: flex;
+    justify-content: end;
+}*/
+/* #navbarNavDropdown{
+    display: flex;
+    justify-content: space-between;
+} */
