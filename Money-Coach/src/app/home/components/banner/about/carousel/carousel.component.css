@@ -1,0 +1,15 @@
+#carouselExampleDark{
+    max-width: 600px;
+    
+}
+
+.carousel-inner{
+    border-radius: 10px;
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
+
+
+.carousel-item h5{
+    background-color: rgba(1,1,1,0.5);
+    color: white;
+}

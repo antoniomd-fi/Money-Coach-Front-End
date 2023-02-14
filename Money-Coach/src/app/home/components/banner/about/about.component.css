@@ -1,0 +1,31 @@
+.about{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Lobster', cursive;
+    margin: 100px 50px;
+}
+.about-title{
+    width: 700px;
+    text-align: left;
+}
+
+.about-container{
+    max-width: 700px;
+    font-size: 1.5rem;
+}
+
+@media (max-width:760px){ 
+
+    .about-title{
+        width: auto;
+    }
+    .about{
+        margin: auto;
+    }
+
+    .about-container{
+        font-size: 1.2rem;
+    }
+}
