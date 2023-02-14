@@ -1,7 +1,7 @@
 <div class="container">
 
   
-    <table class="table table-hover" *ngIf="existRegisters(); else withoutArticles">
+    <table class="table table-hover" *ngIf="existRegisters(); else withoutUsers">
       <tr class="table-header">
         <td>Id</td>
         <td>Name</td>
@@ -9,16 +9,16 @@
         <td>Delete</td>
         <td>Select</td>
       </tr>
-      <tr *ngFor="let art of users">
-        <td>{{art.id}}</td>
-        <td>{{art.name}}</td>
-        <td>{{art.lastname}}</td>
-        <td><button (click)="delete(art.id)" class="btn btn-outline-danger" >DELETE</button></td>
-        <td><button (click)="select(art)" class="btn btn-outline-info">SELECT</button></td>
+      <tr *ngFor="let user of users">
+        <td>{{user.id}}</td>
+        <td>{{user.name}}</td>
+        <td>{{user.lastname}}</td>
+        <td><button (click)="delete(user.id)" class="btn btn-outline-danger" >DELETE</button></td>
+        <td><button (click)="select(user)" class="btn btn-outline-info">SELECT</button></td>
       </tr>
     </table>
   
-      <ng-template #withoutArticles>
+      <ng-template #withoutUsers>
         <p>The database is empty</p>
       </ng-template>
   
@@ -39,5 +39,4 @@
   
       </div>
   
-      <footer>Todos los derechos reservados. Antonio Martin</footer>
   </div>
