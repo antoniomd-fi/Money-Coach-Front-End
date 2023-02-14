@@ -1,0 +1,17 @@
+input{
+    width: 500px;
+}
+
+@media (max-width:760px){
+    input{
+        width: 200px;
+    } 
+
+
+}
+
+@media (max-width:900px){ 
+    .container{
+        margin-top: 50px;
+    }
+}

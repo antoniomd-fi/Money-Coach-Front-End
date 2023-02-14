@@ -4,6 +4,7 @@ import { UserPanelComponent } from './components/user-panel/user-panel.component
 import { EntriesComponent } from './components/user-panel/entries/entries.component';
 import { ExitsComponent } from './components/user-panel/exits/exits.component';
 import { BalanceComponent } from './components/user-panel/balance/balance.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -15,7 +16,8 @@ import { BalanceComponent } from './components/user-panel/balance/balance.compon
     BalanceComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   exports: [
     UserPanelComponent

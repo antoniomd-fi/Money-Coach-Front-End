@@ -1,1 +1,46 @@
-<p>exits works!</p>
+<div class="container">
+
+    <h3>Exits</h3>
+      <table class="table table-hover" *ngIf="existRegisters(); else withoutExits">
+        <tr class="table-header">
+          <td>Id</td>
+          <td>Name</td>
+          <td>Lastname</td>
+          <td>Delete</td>
+          <td>Select</td>
+        </tr>
+        <tr *ngFor="let exit of exits">
+          <td>{{exit.id}}</td>
+          <td>{{exit.amount}}</td>
+          <td>{{exit.concept}}</td>
+          <td>{{exit.date}}</td>
+          <td><button (click)="delete(exit.id)" class="btn btn-outline-danger" >DELETE</button></td>
+          <td><button (click)="select(exit)" class="btn btn-outline-info">SELECT</button></td>
+        </tr>
+      </table>
+    
+        <ng-template #withoutExits>
+          <p>The database is empty</p>
+        </ng-template>
+    
+        <div class="inputs">
+          <p>
+            id: <input  class="form-control" type="number" [(ngModel)]="exit.id">
+          </p>
+          <p>
+            Amount: <input  class="form-control" type="number" [(ngModel)]="exit.amount">
+          </p>
+          <p>
+            Concept: <input  class="form-control" type="text" [(ngModel)]="exit.concept">
+          </p>
+          <p>
+              Date: <input  class="form-control" type="text" [(ngModel)]="exit.date">
+          </p>
+          <p>
+            <button (click)="add()" class="btn btn-outline-primary">ADD EXIT</button>
+            <button (click)="modify()" class="btn btn-outline-secondary">MODIFY EXIT</button>
+          </p>
+    
+        </div>
+    
+    </div>

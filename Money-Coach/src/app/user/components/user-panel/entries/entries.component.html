@@ -1,1 +1,46 @@
-<p>entries works!</p>
+<div class="container">
+
+  <h3>Entries</h3>
+    <table class="table table-hover" *ngIf="existRegisters(); else withoutEntries">
+      <tr class="table-header">
+        <td>Id</td>
+        <td>Name</td>
+        <td>Lastname</td>
+        <td>Delete</td>
+        <td>Select</td>
+      </tr>
+      <tr *ngFor="let entry of entries">
+        <td>{{entry.id}}</td>
+        <td>{{entry.amount}}</td>
+        <td>{{entry.concept}}</td>
+        <td>{{entry.date}}</td>
+        <td><button (click)="delete(entry.id)" class="btn btn-outline-danger" >DELETE</button></td>
+        <td><button (click)="select(entry)" class="btn btn-outline-info">SELECT</button></td>
+      </tr>
+    </table>
+  
+      <ng-template #withoutEntries>
+        <p>The database is empty</p>
+      </ng-template>
+  
+      <div class="inputs">
+        <p>
+          id: <input  class="form-control" type="number" [(ngModel)]="entry.id">
+        </p>
+        <p>
+          Amount: <input  class="form-control" type="number" [(ngModel)]="entry.amount">
+        </p>
+        <p>
+          Concept: <input  class="form-control" type="text" [(ngModel)]="entry.concept">
+        </p>
+        <p>
+            Date: <input  class="form-control" type="text" [(ngModel)]="entry.date">
+        </p>
+        <p>
+          <button (click)="add()" class="btn btn-outline-primary">ADD ENTRY</button>
+          <button (click)="modify()" class="btn btn-outline-secondary">MODIFY ENTRY</button>
+        </p>
+  
+      </div>
+  
+  </div>
