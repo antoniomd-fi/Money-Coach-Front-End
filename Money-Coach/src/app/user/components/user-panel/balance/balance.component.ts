@@ -25,15 +25,15 @@ export class BalanceComponent {
   single = [
     {
       "name": "Entries",
-      "value": 1200
+      "value": 0
     },
     {
       "name": "Exits",
-      "value": 400
+      "value": 0
     },
   ]
 
-  constructor() {
+  constructor(private balanceService: BalanceService) {
     
   }
 
@@ -51,7 +51,7 @@ export class BalanceComponent {
   }
 
   ngOnInit (){
-   
+   this.single = this.balanceService.getBalance()
   }
 
 

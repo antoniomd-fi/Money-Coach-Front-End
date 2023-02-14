@@ -1,5 +1,10 @@
 import { Injectable } from '@angular/core';
 
+interface Balance {
+  name: string,
+  value: number
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -7,14 +12,10 @@ export class BalanceService {
 
   constructor() { }
 
-  public balance =[
+  private data: Balance[]  =[
     {
-      "name" : "Entries",
+      "name" : "Exits",
       "value": 1200.00
-    },
-    {
-      "name" : "Entries",
-      "value": 800.00
     },
     {
       "name" : "Entries",
@@ -23,6 +24,6 @@ export class BalanceService {
   ]
 
   getBalance (){
-    return this.balance;
+    return this.data;
   }
 }
