@@ -13,8 +13,25 @@
     margin-top: 100px;
 }
 
+.balance{
+   display: flex;
+   
+   justify-content: center;
+   align-items: center;
+}
+
+.balance h3, .balance h2{
+    text-align: center;
+}
 @media (max-width:900px){ 
-    .tables{
+    .tables, .balance{
         flex-direction: column;
+    }
+}
+
+@media (max-width:760px){ 
+    .balance{
+        width: 500px;
+        
     }
 }

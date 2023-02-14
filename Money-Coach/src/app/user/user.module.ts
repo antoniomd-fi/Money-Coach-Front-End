@@ -5,7 +5,9 @@ import { EntriesComponent } from './components/user-panel/entries/entries.compon
 import { ExitsComponent } from './components/user-panel/exits/exits.component';
 import { BalanceComponent } from './components/user-panel/balance/balance.component';
 import { FormsModule } from '@angular/forms';
-
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { BrowserModule } from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 
 
 @NgModule({
@@ -17,7 +19,10 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    NgxChartsModule,
+    BrowserModule,
+    BrowserAnimationsModule
   ],
   exports: [
     UserPanelComponent
