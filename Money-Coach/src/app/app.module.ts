@@ -8,6 +8,7 @@ import { AdminModule } from './admin/admin.module';
 import { UserModule } from './user/user.module';
 import { FormsModule } from '@angular/forms';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { LoginModule } from './login/login.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     AdminModule,
     UserModule,
     FormsModule,
-    NgxChartsModule
+    NgxChartsModule,
+    LoginModule
   ],
   providers: [],
   bootstrap: [AppComponent]
