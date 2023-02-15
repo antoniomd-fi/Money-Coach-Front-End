@@ -8,10 +8,16 @@ import { Router } from '@angular/router';
 })
 export class ButtonComponent {
   
+  isLogin: string = ""
+
   constructor(private router:Router){}
 
   openLogin(){
     this.router.navigate(['login'])
+  }
+
+  logout(){
+
   }
 
 }
