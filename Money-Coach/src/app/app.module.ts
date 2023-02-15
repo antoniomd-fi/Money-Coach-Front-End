@@ -24,7 +24,6 @@ import { LoginModule } from './login/login.module';
     FormsModule,
     NgxChartsModule,
     LoginModule
-
   ],
   providers: [],
   bootstrap: [AppComponent]
