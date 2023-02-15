@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ExitsService } from 'src/app/services/exit/exits.service';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-exits',
@@ -15,7 +16,7 @@ export class ExitsComponent {
   }
 
   exits : any
-  constructor (private enxitsServices: ExitsService){}
+  constructor (private enxitsServices: ExitsService,private route: ActivatedRoute){}
 
   existRegisters(){
     return this.exits.length > 0
@@ -71,6 +72,8 @@ modify(){
 }
 
 ngOnInit(){
-  this.exits = this.enxitsServices.getExits()
+  let id:any
+  id = this.route.snapshot.params
+  this.exits = this.enxitsServices.getExits(id.id)
 }
 }

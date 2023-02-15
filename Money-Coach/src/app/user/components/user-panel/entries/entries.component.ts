@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { EntriesService } from 'src/app/services/entry/entries.service';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-entries',
@@ -10,13 +11,13 @@ export class EntriesComponent {
 
   entry={
     id:0,
-    amount:0.0,
+    amount:0,
     concept: "",
     date: ""
   }
 
   entries : any
-  constructor (private entriesServices: EntriesService){}
+  constructor (private entriesServices: EntriesService,private route: ActivatedRoute){}
 
   existRegisters(){
     return this.entries.length > 0
@@ -72,6 +73,8 @@ modify(){
 }
 
 ngOnInit(){
-  this.entries = this.entriesServices.getEntries()
+  let id:any
+  id = this.route.snapshot.params
+  this.entries = this.entriesServices.getEntries(id.id)
 }
 }
