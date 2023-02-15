@@ -7,9 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Money-Coach';
-
+  
+  
   ngOnInit(){
     localStorage.setItem('login', 'false')
-    localStorage.setItem('admin', 'false')
+  localStorage.setItem('admin', 'false')
   }
 }

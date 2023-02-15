@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { BalanceService } from 'src/app/services/balance/balance.service';
+import { ActivatedRoute} from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-balance',
@@ -8,7 +10,7 @@ import { BalanceService } from 'src/app/services/balance/balance.service';
 })
 export class BalanceComponent {
 
-  
+
   
   view: [number,number] = [700, 400];
 
@@ -22,18 +24,23 @@ export class BalanceComponent {
     domain: ['#5AA454', '#A10A28']
   };
 
-  single = [
-    {
-      "name": "Entries",
-      "value": 0
-    },
+  entries:any
+  exits:any
+
+  single:any[] = [
     {
       "name": "Exits",
       "value": 0
     },
+    {
+      "name": "Entries",
+      "value": 0
+    }
   ]
 
-  constructor(private balanceService: BalanceService) {
+  
+  
+  constructor(private balanceService: BalanceService, private route : ActivatedRoute, private httpClient : HttpClient) {
     
   }
 
@@ -50,8 +57,25 @@ export class BalanceComponent {
     console.log('Deactivate', JSON.parse(JSON.stringify(data)));
   }
 
-  ngOnInit (){
-   this.single = this.balanceService.getBalance()
+    ngOnInit (){
+    let id:any
+    
+    id = this.route.snapshot.params
+    this.httpClient.get<number>(`${this.balanceService.url}/getTotalEntriesByUser/${id.id}`)
+    .subscribe(res =>{
+      this.entries = res
+      this.single[0].value = this.entries
+    }),
+    (error: any) => {
+      console.error(error)
+    }
+
+   
+    //this.single = this.balanceService.getTotal(id.id)
+    console.log(this.entries)
+    
+    console.log(this.single)
+ 
   }
 
 

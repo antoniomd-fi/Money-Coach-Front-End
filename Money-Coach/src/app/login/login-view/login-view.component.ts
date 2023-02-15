@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UsersService } from 'src/app/services/users.service';
+import { ButtonService } from 'src/app/services/login/button.service';
 
 @Component({
   selector: 'app-login-view',
@@ -10,7 +11,7 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class LoginViewComponent {
 
-  constructor(private router: Router, private userService: UsersService) { }
+  constructor(private router: Router, private userService: UsersService, private buttonService : ButtonService) { }
 
   login(form: NgForm) {
     const username = form.value.username
@@ -21,8 +22,9 @@ export class LoginViewComponent {
     switch (username) {
       case 'admin':
         if (password == 'admin') {
-          localStorage.setItem('loggin', 'true')
+          localStorage.setItem('login', 'true')
           localStorage.setItem('admin', 'true')
+          this.buttonService.$isLogged.emit(true)
           this.router.navigate(['admin'])
         }
         else { alert('wrong password') }
@@ -30,7 +32,8 @@ export class LoginViewComponent {
 
       case 'amd':
         if (password == '1234') {
-          localStorage.setItem('loggin', 'true')
+          localStorage.setItem('login', 'true')
+          this.buttonService.$isLogged.emit(true)
           this.router.navigate(['user/1'])
         }
         else { alert('wrong password') }
@@ -38,7 +41,8 @@ export class LoginViewComponent {
 
       case 'test':
         if (password == '1234') {
-          localStorage.setItem('loggin', 'true')
+          localStorage.setItem('login', 'true')
+          this.buttonService.$isLogged.emit(true)
           this.router.navigate(['user/2'])
         }
         else { alert('wrong password') }

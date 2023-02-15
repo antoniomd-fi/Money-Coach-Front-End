@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 interface Balance {
   name: string,
@@ -10,20 +11,62 @@ interface Balance {
 })
 export class BalanceService {
 
-  constructor() { }
+  public url = 'http://localhost:3000'
 
-  private data: Balance[]  =[
+  constructor(private httpClient: HttpClient) { }
+
+  private data: any[]  =[
     {
       "name" : "Exits",
-      "value": 1200.00
+      "value": 0
     },
     {
       "name" : "Entries",
-      "value": 400.00
+      "value": 0
     }
   ]
 
-  getBalance (){
-    return this.data;
+  private values: any[]= []
+  private entries:any
+  private exits:any
+  private balance:any
+
+   async getEntries(route:number){
+   
+     const res = await this.httpClient.get(`${this.url}/getTotalEntriesByUser/${route}`)
+     .toPromise()
+      return res
   }
+
+   async getExits(route:number){
+    const res = await this.httpClient.get(`${this.url}/getTotalExitsByUser/${route}`)
+     .toPromise()
+    return res
+  }
+
+   getTotal(route:number){
+    this.httpClient.get(`${this.url}/getTotalEntriesByUser/${route}`)
+    .subscribe(res =>{
+      this.entries = res
+      this.data.push({"name" : "Entries",
+      "value": this.entries})
+    }),
+    (error: any) => {
+      console.error(error)
+    }
+
+    this.httpClient.get(`${this.url}/getTotalExitsByUser/${route}`)
+    .subscribe(res =>{
+      this.exits = res
+      this.data.push({"name" : "Exits",
+      "value": this.exits})
+    }),
+    (error: any) => {
+      console.error(error)
+    }
+  
+    return this.data
+  }
+    
 }
+

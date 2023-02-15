@@ -10,7 +10,6 @@ import { FormsModule } from '@angular/forms';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { LoginModule } from './login/login.module';
 
-
 @NgModule({
   declarations: [
     AppComponent,
