@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { UsersInfoComponent } from './components/users-info/users-info.component';
 import { TableComponent } from './components/users-info/table/table.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -13,7 +14,8 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   exports: [
     UsersInfoComponent
