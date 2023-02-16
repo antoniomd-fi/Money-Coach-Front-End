@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TableComponent } from './table/table.component';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-users-info',
@@ -8,4 +8,15 @@ import { TableComponent } from './table/table.component';
 })
 export class UsersInfoComponent {
 
+  constructor(private httpClient : HttpClient){}
+
+  sendReport(){
+    this.httpClient.get('http://localhost:3000/sendList')
+    .subscribe(
+      res => console.log(res)
+    ), (error:any) =>{
+      console.log(error)
+    }
+  }
 }
+

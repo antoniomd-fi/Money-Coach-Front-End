@@ -1,7 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { BalanceService } from 'src/app/services/balance/balance.service';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { BalanceComponent } from './balance/balance.component';
+
+
 
 @Component({
   selector: 'app-user-panel',
@@ -11,6 +14,9 @@ import { HttpClient } from '@angular/common/http';
 export class UserPanelComponent {
 
   balance:any
+
+  @ViewChild('graph')
+  balanceComponent!: BalanceComponent;
 
   constructor(private balanceService : BalanceService, private route : ActivatedRoute, private httpClient : HttpClient){}
   
@@ -24,6 +30,7 @@ export class UserPanelComponent {
     (error: any) => {
       console.error(error)
     }
+    this.balanceComponent.updateGraph();
   }
 
   ngOnInit(){

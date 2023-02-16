@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 
 
+
 @NgModule({
   declarations: [
     UsersInfoComponent,
@@ -16,6 +17,9 @@ import { HttpClientModule } from '@angular/common/http';
     CommonModule,
     FormsModule,
     HttpClientModule
+  ],
+  providers: [
+    
   ],
   exports: [
     UsersInfoComponent

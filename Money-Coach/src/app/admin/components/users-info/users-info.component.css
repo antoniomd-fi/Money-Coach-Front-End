@@ -5,3 +5,13 @@
     align-items: center;
     margin-top: 100px;
 }
+.sendButton{
+    background-color: #C4F069;
+    color: black;
+    font-weight: bold;
+    border-color: black;
+  }
+
+  .lastDiv{
+    margin-bottom: 50px;
+  }

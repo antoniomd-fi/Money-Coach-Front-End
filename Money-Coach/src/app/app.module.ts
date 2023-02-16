@@ -9,6 +9,8 @@ import { UserModule } from './user/user.module';
 import { FormsModule } from '@angular/forms';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { LoginModule } from './login/login.module';
+import { AuthGuard } from './guards/auth.guard';
+import { UserAuthGuard } from './guards/user-auth.guard';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,10 @@ import { LoginModule } from './login/login.module';
     NgxChartsModule,
     LoginModule
   ],
-  providers: [],
+  providers: [
+    AuthGuard,
+    UserAuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

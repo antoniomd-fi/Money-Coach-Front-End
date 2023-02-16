@@ -1,11 +1,15 @@
 <section class="user-panel">
     <h1>Money Coach</h1>
     <div class="balance">
-        <app-balance></app-balance>
+        <app-balance #graph></app-balance>
         <div>
             <h2>Real Balance</h2>
             <h3>{{balance}}</h3>
         </div>
+        
+    </div>
+    <div>
+        <button (click)="updateBalance()" type="button" class="btn btn-outline-success refreshButton">Refresh Graph</button>
     </div>
     <div class="tables">
         <app-entries></app-entries>

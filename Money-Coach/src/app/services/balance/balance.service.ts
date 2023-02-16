@@ -31,41 +31,10 @@ export class BalanceService {
   private exits:any
   private balance:any
 
-   async getEntries(route:number){
-   
-     const res = await this.httpClient.get(`${this.url}/getTotalEntriesByUser/${route}`)
-     .toPromise()
-      return res
-  }
 
-   async getExits(route:number){
-    const res = await this.httpClient.get(`${this.url}/getTotalExitsByUser/${route}`)
-     .toPromise()
-    return res
-  }
 
    getTotal(route:number){
-    this.httpClient.get(`${this.url}/getTotalEntriesByUser/${route}`)
-    .subscribe(res =>{
-      this.entries = res
-      this.data.push({"name" : "Entries",
-      "value": this.entries})
-    }),
-    (error: any) => {
-      console.error(error)
-    }
-
-    this.httpClient.get(`${this.url}/getTotalExitsByUser/${route}`)
-    .subscribe(res =>{
-      this.exits = res
-      this.data.push({"name" : "Exits",
-      "value": this.exits})
-    }),
-    (error: any) => {
-      console.error(error)
-    }
-  
-    return this.data
+    return this.httpClient.get<any>(`${this.url}/getEntriesAndExits/${route}`)
   }
     
 }

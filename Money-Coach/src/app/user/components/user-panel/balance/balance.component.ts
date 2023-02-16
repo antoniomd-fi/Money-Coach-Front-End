@@ -28,14 +28,15 @@ export class BalanceComponent {
   exits:any
 
   single:any[] = [
-    {
+   /* {
       "name": "Exits",
-      "value": 0
+      "value": 1200
+
     },
     {
       "name": "Entries",
       "value": 0
-    }
+    }*/
   ]
 
   
@@ -56,25 +57,33 @@ export class BalanceComponent {
   onDeactivate(data: any): void {
     console.log('Deactivate', JSON.parse(JSON.stringify(data)));
   }
+  updateGraph(){
+    let id:any
+    
+    id = this.route.snapshot.params
+    this.balanceService.getTotal(id.id).subscribe(
+      data => {
+        this.single = data
+      }
+    ),
+    (error: any) => {
+      console.error(error)
+    }
+  }
 
     ngOnInit (){
     let id:any
     
     id = this.route.snapshot.params
-    this.httpClient.get<number>(`${this.balanceService.url}/getTotalEntriesByUser/${id.id}`)
-    .subscribe(res =>{
-      this.entries = res
-      this.single[0].value = this.entries
-    }),
+    this.balanceService.getTotal(id.id).subscribe(
+      data => {
+        this.single = data
+      }
+    ),
     (error: any) => {
       console.error(error)
     }
 
-   
-    //this.single = this.balanceService.getTotal(id.id)
-    console.log(this.entries)
-    
-    console.log(this.single)
  
   }
 
