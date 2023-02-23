@@ -5,6 +5,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { ButtonComponent } from './components/header/button/button.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { InternalErrorComponent } from './internal-error/internal-error.component';
+import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 
 
 @NgModule({
@@ -12,7 +14,9 @@ import { NotFoundComponent } from './not-found/not-found.component';
     FooterComponent,
     HeaderComponent,
     ButtonComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    InternalErrorComponent,
+    UnauthorizedComponent
   ],
   imports: [
     CommonModule,
@@ -22,7 +26,9 @@ import { NotFoundComponent } from './not-found/not-found.component';
     HeaderComponent,
     FooterComponent,
     ButtonComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    InternalErrorComponent,
+    UnauthorizedComponent
   ]
 })
 export class SharedModule { }

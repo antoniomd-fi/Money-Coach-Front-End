@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ export class UsersService {
 
   public url = 'http://localhost:3000'
 
-  constructor( private httpClient:HttpClient) { }
+  constructor( private httpClient:HttpClient, private router:Router) { }
 
   public users:any[] = [
   //   {id:1, name :"Antonio", lastname: "Martin", username: "amd" },
@@ -29,6 +30,7 @@ export class UsersService {
           this.users.push(this.users2[i])
         }
       }, (error:any) => {
+        this.router.navigate(['error'])
         console.log(error)
       }
      )     

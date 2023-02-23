@@ -7,6 +7,7 @@ import { LoginViewComponent } from './login/login-view/login-view.component';
 import { NotFoundComponent} from './shared/not-found/not-found.component';
 import { AuthGuard } from './guards/auth.guard';
 import { UserAuthGuard } from './guards/user-auth.guard';
+import { InternalErrorComponent } from './shared/internal-error/internal-error.component';
 
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: 'admin', component:UsersInfoComponent, canActivate: [AuthGuard]},
   {path: 'user/:id', component:UserPanelComponent, canActivate: [UserAuthGuard]},
   {path: 'login', component:LoginViewComponent},
+  {path: 'error', component:InternalErrorComponent},
   {path: '**', component:  NotFoundComponent}
 ];
 

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ export class ExitsService {
 
   public url = 'http://localhost:3000'
 
-  constructor(private httpClient:HttpClient) { }
+  constructor(private httpClient:HttpClient, private router:Router) { }
 
   public exits: any[] = [
     // {id:1, amount: "120.00",concept :"Water",  date: "2010-12-23T09:00:00" },
@@ -28,6 +29,7 @@ export class ExitsService {
           //this.exits[i].amount = this.exits[i].amount.toString()
         }
       }, (error:any) => {
+        this.router.navigate(['error'])
         console.log(error)
       }
      )     
