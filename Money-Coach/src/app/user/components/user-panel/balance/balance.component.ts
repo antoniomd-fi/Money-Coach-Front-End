@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { BalanceService } from 'src/app/services/balance/balance.service';
 import { ActivatedRoute} from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-balance',
@@ -41,7 +42,7 @@ export class BalanceComponent {
 
   
   
-  constructor(private balanceService: BalanceService, private route : ActivatedRoute, private httpClient : HttpClient) {
+  constructor(private balanceService: BalanceService, private route : ActivatedRoute, private httpClient : HttpClient, private router:Router) {
     
   }
 
@@ -81,6 +82,7 @@ export class BalanceComponent {
       }
     ),
     (error: any) => {
+      this.router.navigate(['error'])
       console.error(error)
     }
 
