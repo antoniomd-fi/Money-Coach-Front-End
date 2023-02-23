@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-internal-error',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class InternalErrorComponent {
 
+  constructor(private router: Router){}
+  
+  returnButton(){
+    this.router.navigate([''])
+  }
 }
