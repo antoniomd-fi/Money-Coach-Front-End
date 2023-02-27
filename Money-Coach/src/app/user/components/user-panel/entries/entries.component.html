@@ -26,7 +26,7 @@
   
       <div class="inputs">
         <p>
-          id: <input  class="form-control" type="number" [(ngModel)]="entry.id">
+          id: <input  class="form-control" type="number" min="0"  [(ngModel)]="entry.id">
         </p>
         <p>
           Amount: <input  class="form-control" type="number" [(ngModel)]="entry.amount">
@@ -35,7 +35,7 @@
           Concept: <input  class="form-control" type="text" [(ngModel)]="entry.concept">
         </p>
         <p>
-            Date: <input  class="form-control" type="text" [(ngModel)]="entry.date">
+            Date: <input  class="form-control" type="date" [(ngModel)]="entry.date">
         </p>
         <p>
           <button (click)="add()" class="btn btn-outline-primary">ADD ENTRY</button>
