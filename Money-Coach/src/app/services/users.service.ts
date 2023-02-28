@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 })
 export class UsersService {
 
-  public url = 'http://localhost:3000'
+  public url = 'hhttps://money-coach-db.herokuapp.com'
 
   constructor( private httpClient:HttpClient, private router:Router) { }
 
