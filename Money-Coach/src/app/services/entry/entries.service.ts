@@ -39,5 +39,8 @@ export class EntriesService {
     return this.entries;
   }
 
+  logout (){
+    this.entries = []
+  }
 
 }

@@ -65,7 +65,7 @@ export class EntriesComponent {
 
     this.entries.push({id:this.entry.id, amount: this.entry.amount, concept: this.entry.concept, date: this.entry.date})
 
-    this.httpClient.post(this.entriesServices.url + '/addEntry', { id: this.entry.id, amount: this.entry.amount, concept: this.entry.concept, date: this.entry.date, personId: id.id })
+    this.httpClient.post(this.entriesServices.url + '/addEntry', { id: this.entry.id, amount: this.entry.amount, concept: this.entry.concept, date: this.entry.date, person_id: id.id })
     .subscribe(
       res => {
         console.log(res)
@@ -104,6 +104,7 @@ modify(){
 ngOnInit(){
   let id:any
   id = this.route.snapshot.params
+  
   this.entries = this.entriesServices.getEntries(id.id)
 }
 }

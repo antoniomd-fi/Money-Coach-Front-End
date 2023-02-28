@@ -37,5 +37,7 @@ export class UsersService {
     return this.users;
   }
 
-
+  logout (){
+    this.users = []
+  }
 }

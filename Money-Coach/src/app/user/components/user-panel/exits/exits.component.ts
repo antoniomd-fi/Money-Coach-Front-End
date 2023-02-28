@@ -64,7 +64,7 @@ export class ExitsComponent {
 
     this.exits.push({ id: this.exit.id, amount: this.exit.amount, concept: this.exit.concept, date: this.exit.date })
 
-    this.httpClient.post(this.enxitsServices.url + '/addExit', { id: this.exit.id, amount: this.exit.amount, concept: this.exit.concept, date: this.exit.date, personId: id.id })
+    this.httpClient.post(this.enxitsServices.url + '/addExit', { id: this.exit.id, amount: this.exit.amount, concept: this.exit.concept, date: this.exit.date, person_id: id.id })
       .subscribe(
         res => {
           console.log(res)

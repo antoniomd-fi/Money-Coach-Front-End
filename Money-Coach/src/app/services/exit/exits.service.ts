@@ -36,4 +36,8 @@ export class ExitsService {
 
     return this.exits;
   }
+
+  logout (){
+    this.exits = []
+  }
 }
